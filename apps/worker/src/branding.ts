@@ -8,7 +8,7 @@
  * (`report.typ:212`), while a human-read line takes an em dash.
  */
 
-export const PRODUCT_NAME = 'Shannon';
+export const PRODUCT_NAME = 'shannon-nighthack';
 export const PRODUCT_DESCRIPTOR = 'AI Pentester by Keygraph';
 
 /** Cover wordmark for the Typst template, which parses the pipe. */

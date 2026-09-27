@@ -1,4 +1,4 @@
-# Shannon Full LLM Context
+# shannon-nighthack Full LLM Context
 
 > Combined README and documentation for AI agents and LLMs, generated verbatim from the local files referenced in llms.txt. For the concise index, see [llms.txt](llms.txt).
 
@@ -7,25 +7,25 @@
 # File: README.md
 
 > [!NOTE]
-> **[Shannon 3.0 is live](https://github.com/KeygraphHQ/shannon/discussions/439):** deeper security code analysis, more thoroughly vetted findings, a rebuilt CLI, native CI/CD, professional PDF reports, and SARIF.
+> **[shannon-nighthack 3.0 is live](https://github.com/KeygraphHQ/shannon/discussions/439):** deeper security code analysis, more thoroughly vetted findings, a rebuilt CLI, native CI/CD, professional PDF reports, and SARIF.
 
 <div align="center">
 
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="./assets/github-banner-dark.png">
 <source media="(prefers-color-scheme: light)" srcset="./assets/github-banner-light.png">
-<img src="./assets/github-banner-light.png" alt="Shannon, AI Pentester for Web Apps and APIs, by Keygraph" width="100%">
+<img src="./assets/github-banner-light.png" alt="shannon-nighthack, AI Pentester for Web Apps and APIs, by Keygraph" width="100%">
 </picture>
 
 <a href="https://trendshift.io/repositories/15604" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15604" alt="KeygraphHQ%2Fshannon | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-### Shannon is an autonomous, AI pentester for web applications and APIs.
+### shannon-nighthack is an autonomous, AI pentester for web applications and APIs.
 
 It analyzes your source code, identifies attack paths, and executes real exploits to prove vulnerabilities before they reach production. **No exploit, no report.**
 
-**This repository is Shannon Open Source: the full agent, run locally from your command line.**
+**This repository is shannon-nighthack Open Source: the full agent, run locally from your command line.**
 
-<p><strong>Launch Shannon</strong></p>
+<p><strong>Launch shannon-nighthack</strong></p>
 
 ```bash
 npx @keygraph/shannon@latest
@@ -49,14 +49,14 @@ npx @keygraph/shannon@latest
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [What is Shannon?](#what-is-shannon)
-  - [Why Shannon Exists](#why-shannon-exists)
-  - [Why "Shannon"?](#why-shannon)
+- [What is shannon-nighthack?](#what-is-shannon-nighthack)
+  - [Why shannon-nighthack Exists](#why-shannon-nighthack-exists)
+  - [Why "shannon-nighthack"?](#why-shannon-nighthack)
   - [Not a replacement for human pentesters](#not-a-replacement-for-human-pentesters)
-- [Shannon in Action](#shannon-in-action)
+- [shannon-nighthack in Action](#shannon-nighthack-in-action)
 - [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
-  - [Run Shannon](#run-shannon)
+  - [Run shannon-nighthack](#run-shannon-nighthack)
 - [Key Capabilities](#key-capabilities)
 - [CI/CD Integrations](#cicd-integrations)
   - [GitHub Actions](#github-actions)
@@ -69,40 +69,40 @@ npx @keygraph/shannon@latest
 - [About Keygraph](#about-keygraph)
 - [Community and Support](#community-and-support)
 - [Common Questions](#common-questions)
-  - [Can I self-host Shannon?](#can-i-self-host-shannon)
-  - [Does Shannon support bring your own key (BYOK)?](#does-shannon-support-bring-your-own-key-byok)
-  - [Does Shannon output SARIF?](#does-shannon-output-sarif)
-  - [Which AI providers does Shannon support?](#which-ai-providers-does-shannon-support)
-  - [Can I run Shannon on a local or self-hosted model?](#can-i-run-shannon-on-a-local-or-self-hosted-model)
-  - [Does Shannon actually exploit vulnerabilities, or just scan?](#does-shannon-actually-exploit-vulnerabilities-or-just-scan)
+  - [Can I self-host shannon-nighthack?](#can-i-self-host-shannon-nighthack)
+  - [Does shannon-nighthack support bring your own key (BYOK)?](#does-shannon-nighthack-support-bring-your-own-key-byok)
+  - [Does shannon-nighthack output SARIF?](#does-shannon-nighthack-output-sarif)
+  - [Which AI providers does shannon-nighthack support?](#which-ai-providers-does-shannon-nighthack-support)
+  - [Can I run shannon-nighthack on a local or self-hosted model?](#can-i-run-shannon-nighthack-on-a-local-or-self-hosted-model)
+  - [Does shannon-nighthack actually exploit vulnerabilities, or just scan?](#does-shannon-nighthack-actually-exploit-vulnerabilities-or-just-scan)
 
 
 
-## What is Shannon?
+## What is shannon-nighthack?
 
-Shannon is an autonomous AI pentester developed by [Keygraph](https://keygraph.io). It performs security testing of web applications and their underlying APIs by combining source-code analysis with live exploitation.
+shannon-nighthack is an autonomous AI pentester developed by [Keygraph](https://keygraph.io). It performs security testing of web applications and their underlying APIs by combining source-code analysis with live exploitation.
 
-Shannon analyzes your web application's source code to identify potential attack vectors, then uses browser automation and command-line tools to execute real exploits against the running application and its APIs. Only vulnerabilities with a working proof-of-concept are included in the final report.
+shannon-nighthack analyzes your web application's source code to identify potential attack vectors, then uses browser automation and command-line tools to execute real exploits against the running application and its APIs. Only vulnerabilities with a working proof-of-concept are included in the final report.
 
-Shannon is the agent. This repository is Shannon Open Source, the standalone pentester you run yourself. The same Shannon also powers the [Keygraph platform](https://keygraph.io), Keygraph's commercial pentesting product. See [Editions](#editions) for how the two compare.
+shannon-nighthack is the agent. This repository is shannon-nighthack Open Source, the standalone pentester you run yourself. The same shannon-nighthack also powers the [Keygraph platform](https://keygraph.io), Keygraph's commercial pentesting product. See [Editions](#editions) for how the two compare.
 
-<a id="why-shannon-exists"></a>
+<a id="why-shannon-nighthack-exists"></a>
 <details>
-<summary><strong>Why Shannon Exists</strong></summary>
+<summary><strong>Why shannon-nighthack Exists</strong></summary>
 
 Thanks to tools like Claude Code and Cursor, your team ships code non-stop. But your penetration test? That happens once a year. This creates a massive security gap. For the other 364 days, you could be unknowingly shipping vulnerabilities to production.
 
-Shannon closes that gap by providing on-demand, automated penetration testing that can run against every build or release.
+shannon-nighthack closes that gap by providing on-demand, automated penetration testing that can run against every build or release.
 
 </details>
 
-<a id="why-shannon"></a>
+<a id="why-shannon-nighthack"></a>
 <details>
-<summary><strong>Why "Shannon"?</strong></summary>
+<summary><strong>Why "shannon-nighthack"?</strong></summary>
 
 It's named after Claude Shannon, the father of information theory. At its core, pentesting is an information problem: every probe reduces uncertainty about a system's state. The best tools maximize the signal gained from every request, turning those bits of knowledge into an exploit path.
 
-Also, we wanted you to be able to say, "Hey Claude, run Shannon" to find all the security flaws in your vibe-coded app.
+Also, we wanted you to be able to say, "Hey Claude, run shannon-nighthack" to find all the security flaws in your vibe-coded app.
 
 </details>
 
@@ -110,19 +110,19 @@ Also, we wanted you to be able to say, "Hey Claude, run Shannon" to find all the
 <details>
 <summary><strong>Not a replacement for human pentesters</strong></summary>
 
-Shannon is built to work alongside expert pentesters and red teamers, not replace them. Great pentesters understand the business, chain attacks in ways nobody anticipated, and bring years of judgment that current models can't match.
+shannon-nighthack is built to work alongside expert pentesters and red teamers, not replace them. Great pentesters understand the business, chain attacks in ways nobody anticipated, and bring years of judgment that current models can't match.
 
-Shannon solves a different problem: there is far more software to test than security teams have time to cover. Critical systems get periodic expert assessments, while the long tail of internal apps, APIs, and fast-moving services rarely gets tested at all.
+shannon-nighthack solves a different problem: there is far more software to test than security teams have time to cover. Critical systems get periodic expert assessments, while the long tail of internal apps, APIs, and fast-moving services rarely gets tested at all.
 
-Shannon shifts pentesting left into the software development lifecycle (SDLC). Use it to run exploitation-backed tests against staging environments and releases at the cadence they actually ship, and save expert human time for the risks that need someone who knows the organization.
+shannon-nighthack shifts pentesting left into the software development lifecycle (SDLC). Use it to run exploitation-backed tests against staging environments and releases at the cadence they actually ship, and save expert human time for the risks that need someone who knows the organization.
 
 </details>
 
-## Shannon in Action
+## shannon-nighthack in Action
 
-![Shannon running an autonomous pentest](assets/Shannon3GIF.gif)
+![shannon-nighthack running an autonomous pentest](assets/Shannon3GIF.gif)
 
-These reports are from Shannon Open Source scans of Photoview 2.4.0, one of the applications in Doyensec's comparison of Aikido and XBOW. We ran Shannon against the same application version and evaluated its results separately. Read the [Doyensec study](https://doyensec.com/resources/ComparingAIApplicationSecurityTestingPlatforms_Doyensec.pdf) and our [Shannon follow-up comparison](docs/shannon-xbow-aikido-benchmark.md) for the methodology, limitations, costs, and results.
+These reports are from shannon-nighthack Open Source scans of Photoview 2.4.0, one of the applications in Doyensec's comparison of Aikido and XBOW. We ran shannon-nighthack against the same application version and evaluated its results separately. Read the [Doyensec study](https://doyensec.com/resources/ComparingAIApplicationSecurityTestingPlatforms_Doyensec.pdf) and our [shannon-nighthack follow-up comparison](docs/shannon-xbow-aikido-benchmark.md) for the methodology, limitations, costs, and results.
 
 
 | Model             | Report                                                                       | SARIF                                                            |
@@ -139,15 +139,15 @@ These reports are from Shannon Open Source scans of Photoview 2.4.0, one of the 
 
 - **Docker**: required for the worker container.
 - **Node.js 18+**: required for the recommended `npx` workflow.
-- **AI provider credentials**: Shannon runs on Anthropic, OpenAI, xAI, AWS Bedrock, and [any other provider](docs/ai-providers.md#any-other-provider) in the harness catalogue — each of which you can point at a proxy or LLM gateway through a [custom base URL](docs/ai-providers.md#custom-base-url), and a model the catalogue does not carry can be described with a [custom model configuration](docs/ai-providers.md#custom-model-configuration). You bring your own key, and Keygraph never proxies your model traffic. Shannon is provider-agnostic. See [AI providers](docs/ai-providers.md#suggested-models) for suggested model IDs.
+- **AI provider credentials**: shannon-nighthack runs on Anthropic, OpenAI, xAI, AWS Bedrock, and [any other provider](docs/ai-providers.md#any-other-provider) in the harness catalogue — each of which you can point at a proxy or LLM gateway through a [custom base URL](docs/ai-providers.md#custom-base-url), and a model the catalogue does not carry can be described with a [custom model configuration](docs/ai-providers.md#custom-model-configuration). You bring your own key, and Keygraph never proxies your model traffic. shannon-nighthack is provider-agnostic. See [AI providers](docs/ai-providers.md#suggested-models) for suggested model IDs.
 - **Cyber safeguards cleared with your provider**: Anthropic and OpenAI apply real-time safeguards to cyber-security workloads, which can interrupt a scan mid-run. Complete their guidance for legitimate security testers before your first run - see [AI providers](docs/ai-providers.md#cyber-safeguards-do-this-before-your-first-scan).
 
 
 
-### Run Shannon
+### Run shannon-nighthack
 
 > [!WARNING]
-> Shannon actively executes exploits. Run it only against applications and environments you own or have explicit written authorization to test. Do not run Shannon against production systems.
+> shannon-nighthack actively executes exploits. Run it only against applications and environments you own or have explicit written authorization to test. Do not run shannon-nighthack against production systems.
 
 ```bash
 # Configure credentials with the interactive wizard.
@@ -159,16 +159,16 @@ npx @keygraph/shannon@latest start \
   -r /path/to/your/repo
 ```
 
-Shannon pulls the worker image from Docker Hub, starts the required local infrastructure, mounts the target repository read-only inside an ephemeral worker container, and writes results to a local workspace.
+shannon-nighthack pulls the worker image from Docker Hub, starts the required local infrastructure, mounts the target repository read-only inside an ephemeral worker container, and writes results to a local workspace.
 
 For source builds, authenticated scans, provider-specific setup, and platform notes, see [Documentation](#documentation).
 
 > [!TIP]
 > **Prefer to use a subscription instead of API credits?**
 >
-> - **OpenAI Codex:** The latest version of Shannon supports ChatGPT Plus and Pro subscriptions. Follow the [OpenAI Codex subscription setup guide](docs/ai-providers.md#openai-codex-chatgpt-pluspro-subscription) to get started.
-> - **xAI (Grok):** The latest version of Shannon supports xAI subscriptions. Follow the [xAI subscription setup guide](docs/ai-providers.md#xai-grok-subscription) to get started.
-> - **Claude Code:** The latest version of Shannon does not support Claude Code subscriptions. Follow the [Claude Code subscription setup guide](docs/ai-providers.md#claude-code-subscription) to use version `1.9.0`, which is the final release built on the Claude Agent SDK.
+> - **OpenAI Codex:** The latest version of shannon-nighthack supports ChatGPT Plus and Pro subscriptions. Follow the [OpenAI Codex subscription setup guide](docs/ai-providers.md#openai-codex-chatgpt-pluspro-subscription) to get started.
+> - **xAI (Grok):** The latest version of shannon-nighthack supports xAI subscriptions. Follow the [xAI subscription setup guide](docs/ai-providers.md#xai-grok-subscription) to get started.
+> - **Claude Code:** The latest version of shannon-nighthack does not support Claude Code subscriptions. Follow the [Claude Code subscription setup guide](docs/ai-providers.md#claude-code-subscription) to use version `1.9.0`, which is the final release built on the Claude Agent SDK.
 
 
 
@@ -184,13 +184,14 @@ For source builds, authenticated scans, provider-specific setup, and platform no
 - **Native CI/CD integrations**: Runs through the official GitHub Action or GitLab CI/CD component, preserves artifacts, publishes findings, and gates releases on proven vulnerabilities.
 - **Multi-format reports**: Produces evidence-rich PDF and Markdown reports plus JSON and SARIF 2.1.0. SARIF is enabled by default for exploit-mode scans.
 - **Provider agnostic and BYOK**: Supports Anthropic, OpenAI, xAI, AWS Bedrock, compatible APIs and LLM gateways, and local models served through Ollama, vLLM, or LM Studio.
+- **First-class Ollama setup**: Select Ollama in the setup wizard and run an installed local model, including Qwen abliterated variants, without writing a custom model configuration.
 - **Private by design**: Runs in your infrastructure, stores results locally, and sends model requests directly to your chosen endpoint. A local endpoint keeps data inside your environment.
 
 
 
 ## CI/CD Integrations
 
-Shannon can run continuously against deployed staging and development environments through official integrations for [GitHub Actions](https://github.com/KeygraphHQ/shannon-action) and [GitLab CI/CD](https://gitlab.com/KeygraphHQ/shannon-ci).
+shannon-nighthack can run continuously against deployed staging and development environments through official integrations for [GitHub Actions](https://github.com/KeygraphHQ/shannon-action) and [GitLab CI/CD](https://gitlab.com/KeygraphHQ/shannon-ci).
 
 Both integrations:
 
@@ -199,14 +200,14 @@ Both integrations:
 - preserve scan and agent logs for debugging, including incomplete runs;
 - support pull-request, release, and scheduled pentests;
 - distinguish an incomplete assessment from a completed scan with no findings; and
-- optionally fail the pipeline when Shannon exploits a vulnerability at or above a configured severity threshold.
+- optionally fail the pipeline when shannon-nighthack exploits a vulnerability at or above a configured severity threshold.
 
 A code-analysis hypothesis does not fail the pipeline. Severity gates count only findings with `status: exploited`.
 
 ### GitHub Actions
 
 ```yaml
-name: Shannon Pentest
+name: shannon-nighthack Pentest
 
 on:
   workflow_dispatch:
@@ -221,7 +222,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Shannon
+      - name: Run shannon-nighthack
         uses: KeygraphHQ/shannon-action@v1
         with:
           url: https://staging.example.com
@@ -239,11 +240,11 @@ Requirements:
 - access to the running staging or development target; and
 - a model-provider credential stored as a GitHub Actions secret.
 
-See the [Shannon GitHub Action documentation](https://github.com/KeygraphHQ/shannon-action) and [GitHub Marketplace listing](https://github.com/marketplace/actions/shannon-ai-pentester).
+See the [shannon-nighthack GitHub Action documentation](https://github.com/KeygraphHQ/shannon-action) and [GitHub Marketplace listing](https://github.com/marketplace/actions/shannon-ai-pentester).
 
 ## Editions
 
-**Shannon Open Source** is a complete autonomous pentester, especially well suited to individual developers and small teams running focused security tests locally or in CI/CD.
+**shannon-nighthack Open Source** is a complete autonomous pentester, especially well suited to individual developers and small teams running focused security tests locally or in CI/CD.
 
 **Keygraph Enterprise Platform** is for organizations that need a shared platform for continuous agentic pentesting/AppSec across many teams, repositories, and environments. It centralizes deeper analysis, vulnerability management, remediation, verification, governance, and reporting so teams do not have to assemble and maintain those workflows themselves.
 
@@ -251,7 +252,7 @@ See the [Shannon GitHub Action documentation](https://github.com/KeygraphHQ/shan
 
 ## Architecture
 
-Shannon combines multi-stage security code analysis with live reconnaissance and exploitation:
+shannon-nighthack combines multi-stage security code analysis with live reconnaissance and exploitation:
 
 ```mermaid
 flowchart TD
@@ -278,10 +279,10 @@ Stage by stage:
 2. **Agentic security code analysis** maps the application's architecture, trust boundaries, exposed interfaces, dependencies, data flows, and high-risk assets, then opens targeted investigations against them.
 3. **Finding reconciliation** merges both streams of candidates, deduplicates the overlap, and groups what remains into an exploitation queue.
 4. **Exploitation agents** attempt real proof-of-concept attacks against the running application.
-5. **Validation** throws out every candidate Shannon can't demonstrate.
+5. **Validation** throws out every candidate shannon-nighthack can't demonstrate.
 6. **Reporting** produces PDF and Markdown reports with the evidence attached, plus structured JSON and SARIF for downstream systems.
 
-Only live-validated vulnerabilities become Shannon pentest findings or count toward CI/CD severity gates.
+Only live-validated vulnerabilities become shannon-nighthack pentest findings or count toward CI/CD severity gates.
 
 Each scan runs in an ephemeral Docker container with an isolated workspace and per-invocation orchestration.
 
@@ -306,23 +307,23 @@ Use these guides for operational detail:
 
 ## Safety, Scope, and Limitations
 
-Shannon is not a passive scanner. Its exploitation agents can create users, submit forms, mutate application state, trigger outbound requests, and otherwise affect the target system. Use sandboxed, staging, or local development environments with disposable data.
+shannon-nighthack is not a passive scanner. Its exploitation agents can create users, submit forms, mutate application state, trigger outbound requests, and otherwise affect the target system. Use sandboxed, staging, or local development environments with disposable data.
 
-You are responsible for using Shannon legally and ethically. Do not point Shannon at systems, repositories, or applications you do not own or do not have explicit authorization to test.
+You are responsible for using shannon-nighthack legally and ethically. Do not point shannon-nighthack at systems, repositories, or applications you do not own or do not have explicit authorization to test.
 
 Important limitations:
 
-- Shannon Open Source is tuned for fast, code-informed pentesting in everyday development and CI/CD. Exhaustive agentic SAST, broader scanner coverage, centralized governance, and full-lifecycle vulnerability management are delivered through the Keygraph Enterprise Platform.
+- shannon-nighthack Open Source is tuned for fast, code-informed pentesting in everyday development and CI/CD. Exhaustive agentic SAST, broader scanner coverage, centralized governance, and full-lifecycle vulnerability management are delivered through the Keygraph Enterprise Platform.
 - Findings still require human review. LLM-generated reports can contain weakly supported or incorrect details.
-- Anthropic, OpenAI, xAI, and AWS Bedrock are built-in providers, and any other provider in the harness catalogue works too — each reachable through a custom base URL that points it at a proxy or LLM gateway. Model capability varies, and a model that does not follow Shannon's instructions or tool-use constraints reliably will produce weaker results.
+- Anthropic, OpenAI, xAI, and AWS Bedrock are built-in providers, and any other provider in the harness catalogue works too — each reachable through a custom base URL that points it at a proxy or LLM gateway. Model capability varies, and a model that does not follow shannon-nighthack's instructions or tool-use constraints reliably will produce weaker results.
 - A full run can take roughly 1 to 1.5 hours and may incur LLM API costs depending on model pricing and application complexity.
 - Do not scan untrusted or adversarial codebases. AI-powered tools that read source code can be exposed to prompt injection.
 
-Read the full [Safety and limitations](docs/safety.md) guide before running Shannon in a new environment.
+Read the full [Safety and limitations](docs/safety.md) guide before running shannon-nighthack in a new environment.
 
 ## License
 
-Shannon Open Source is licensed under the [GNU Affero General Public License v3.0](LICENSE).
+shannon-nighthack Open Source is licensed under the [GNU Affero General Public License v3.0](LICENSE).
 
 Commercial and enterprise licensing is available for organizations that need different license terms, commercial support, private redistribution, managed-service use, or broader deployment options, including the Keygraph platform.
 
@@ -338,7 +339,7 @@ See [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) for licensing and attribu
 
 ## About Keygraph
 
-**Keygraph** is the company behind Shannon. It also builds the **Keygraph platform**, the commercial agentic pentesting product that closes the full AppSec lifecycle and runs an enhanced build of Shannon as its pentesting engine.
+**Keygraph** is the company behind shannon-nighthack. It also builds the **Keygraph platform**, the commercial agentic pentesting product that closes the full AppSec lifecycle and runs an enhanced build of shannon-nighthack as its pentesting engine.
 
 ## Community and Support
 
@@ -348,7 +349,7 @@ See [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) for licensing and attribu
 - Asia: Thursday, 2:00 PM IST
 - [Book a slot](https://cal.com/george-flores-keygraph/shannon-community-office-hours)
 
-[Join Discord](https://discord.gg/cmctpMBXwE) to ask questions, share feedback, and connect with other Shannon users.
+[Join Discord](https://discord.gg/cmctpMBXwE) to ask questions, share feedback, and connect with other shannon-nighthack users.
 
 At this time, Keygraph is not accepting external code contributions. Issues are welcome for bug reports and feature requests:
 
@@ -367,31 +368,31 @@ Stay connected:
 
 
 
-### Can I self-host Shannon?
+### Can I self-host shannon-nighthack?
 
-Yes. Shannon Open Source runs inside your infrastructure in an ephemeral worker container. It mounts the repository read-only and writes results to a local workspace.
+Yes. shannon-nighthack Open Source runs inside your infrastructure in an ephemeral worker container. It mounts the repository read-only and writes results to a local workspace.
 
-Keygraph never receives your source code and never proxies your model traffic. Your model requests go straight to the provider or endpoint you configure, and they carry source and application context with them. Point Shannon at a locally hosted endpoint and that traffic stays inside your environment too.
+Keygraph never receives your source code and never proxies your model traffic. Your model requests go straight to the provider or endpoint you configure, and they carry source and application context with them. Point shannon-nighthack at a locally hosted endpoint and that traffic stays inside your environment too.
 
-### Does Shannon support bring your own key (BYOK)?
+### Does shannon-nighthack support bring your own key (BYOK)?
 
-Yes, always. You provide the LLM credentials Shannon uses to run a pentest, in every deployment, open source and commercial. Keygraph never proxies your model traffic.
+Yes, always. You provide the LLM credentials shannon-nighthack uses to run a pentest, in every deployment, open source and commercial. Keygraph never proxies your model traffic.
 
-### Does Shannon output SARIF?
+### Does shannon-nighthack output SARIF?
 
-Yes. Shannon emits SARIF 2.1.0, the OASIS standard format for static analysis results, alongside structured JSON. Any SARIF consumer reads it: code scanning services, vulnerability management platforms, security dashboards, and CI/CD pipelines. It is written by default on exploit-mode scans; set `report.sarif` to `"false"` in your configuration file to opt out.
+Yes. shannon-nighthack emits SARIF 2.1.0, the OASIS standard format for static analysis results, alongside structured JSON. Any SARIF consumer reads it: code scanning services, vulnerability management platforms, security dashboards, and CI/CD pipelines. It is written by default on exploit-mode scans; set `report.sarif` to `"false"` in your configuration file to opt out.
 
-### Which AI providers does Shannon support?
+### Which AI providers does shannon-nighthack support?
 
-Anthropic, OpenAI, xAI, and AWS Bedrock are built in and configured directly by provider ID. Beyond those, Shannon runs on any provider in the Pi harness catalogue, named the same `<provider>:<model-id>` way. Any provider can be pointed at a proxy or LLM gateway through a custom base URL, which overrides only the endpoint and keeps that provider's API dialect. A model the catalogue does not carry, such as one a router or gateway serves under its own ID, or a self-hosted model, is described in a [custom model configuration](docs/ai-providers.md#custom-model-configuration) file and passed with `--models-config`. Shannon uses a single unified model setting throughout a pentest.
+Anthropic, OpenAI, xAI, AWS Bedrock, and local Ollama are built in and configured directly by provider ID. Beyond those, shannon-nighthack runs on any provider in the Pi harness catalogue, named the same `<provider>:<model-id>` way. Any provider can be pointed at a proxy or LLM gateway through a custom base URL, which overrides only the endpoint and keeps that provider's API dialect. A model the catalogue does not carry, such as one a router or gateway serves under its own ID or a non-Ollama self-hosted model, is described in a [custom model configuration](docs/ai-providers.md#custom-model-configuration) file and passed with `--models-config`. shannon-nighthack uses a single unified model setting throughout a pentest.
 
-### Can I run Shannon on a local or self-hosted model?
+### Can I run shannon-nighthack on a local or self-hosted model?
 
-Shannon works with local models served through Ollama, vLLM, or LM Studio, which expose an OpenAI-compatible endpoint, as well as routers such as OpenRouter and LLM gateways such as LiteLLM. A model the harness catalogue does not carry, which most self-hosted models are, is described in a [custom model configuration](docs/ai-providers.md#custom-model-configuration) file passed with `--models-config`; routers and gateways can also be reached with a custom base URL. Capability varies, and a model that does not follow Shannon's instructions or tool-use constraints reliably will produce weaker pentests than a frontier model, so take this path only if you know how your chosen model behaves. See [Local and self-hosted models](docs/ai-providers.md#local-and-self-hosted-models).
+shannon-nighthack works with local models served through Ollama, vLLM, or LM Studio, which expose an OpenAI-compatible endpoint, as well as routers such as OpenRouter and LLM gateways such as LiteLLM. Ollama is available directly from the setup wizard and accepts any locally installed model tag, including Qwen abliterated variants, without `--models-config`. Other self-hosted models that the harness catalogue does not carry are described in a [custom model configuration](docs/ai-providers.md#custom-model-configuration) file passed with `--models-config`; routers and gateways can also be reached with a custom base URL. Capability varies, and a model that does not follow shannon-nighthack's instructions or tool-use constraints reliably will produce weaker pentests than a frontier model, so take this path only if you know how your chosen model behaves. See [Local and self-hosted models](docs/ai-providers.md#local-and-self-hosted-models).
 
-### Does Shannon actually exploit vulnerabilities, or just scan?
+### Does shannon-nighthack actually exploit vulnerabilities, or just scan?
 
-Shannon executes real exploits. It reports a finding only when it has produced a working proof-of-concept, and discards hypotheses it cannot prove. It is a pentester, not a passive scanner.
+shannon-nighthack executes real exploits. It reports a finding only when it has produced a working proof-of-concept, and discards hypotheses it cannot prove. It is a pentester, not a passive scanner.
 
 **Built by [Keygraph](https://keygraph.io)**
 
@@ -773,6 +774,7 @@ The provider half decides where the request goes, which credential is used, and 
 | OpenAI | `openai` | `SHANNON_AI_API_KEY` |
 | xAI | `xai` | `SHANNON_AI_API_KEY` |
 | AWS Bedrock | `amazon-bedrock` | `AWS_REGION` and `AWS_BEARER_TOKEN_BEDROCK` |
+| Ollama | `ollama` | None (a placeholder is configured automatically) |
 
 `SHANNON_AI_API_KEY` holds the key for whichever provider `SHANNON_AI_MODEL` names. Bedrock is the exception — it authenticates through its `AWS_` variables only. If `SHANNON_AI_MODEL` is unset, Shannon uses `anthropic:claude-sonnet-4-6`.
 
@@ -847,6 +849,17 @@ xAI:
 export SHANNON_AI_API_KEY=xai-...
 export SHANNON_AI_MODEL=xai:grok-4.5
 ```
+
+Ollama (local):
+
+```bash
+export SHANNON_AI_API_KEY=ollama
+export SHANNON_AI_MODEL=ollama:qwen3.8-abliterated
+export SHANNON_AI_BASE_URL=http://host.docker.internal:11434/v1
+```
+
+The model ID must exactly match the tag shown by `ollama list`. The setup wizard
+configures these values for you when you select **Ollama**.
 
 Source-build mode reads the same variables from a `.env` file.
 
@@ -963,20 +976,38 @@ Pi's [models documentation](https://pi.dev/docs/latest/models) describes the ful
 
 ## Local and self-hosted models
 
-Ollama, LM Studio, vLLM, and any other OpenAI-compatible server are reached through the same mechanism. Describe the server as a provider in a model config file, then name its model with `SHANNON_AI_MODEL`.
+Ollama is a built-in setup option. Start Ollama, pull the model you intend to use,
+then run `npx @keygraph/shannon setup` and select **Ollama**. Enter the exact model
+tag reported by `ollama list`; for example, `qwen3.8-abliterated` if that is the tag
+installed on your machine. The default endpoint is already written from the worker
+container's point of view:
+
+```text
+http://host.docker.internal:11434/v1
+```
+
+No `--models-config` argument is needed for Ollama. shannon-nighthack creates the
+minimal OpenAI-Completions model descriptor at runtime and disables unsupported
+developer-role and reasoning-effort fields for compatibility. An explicit
+`--models-config` still takes precedence when you need to tune context size, output
+limits, or other model metadata.
+
+LM Studio, vLLM, and any other OpenAI-compatible server use a custom model config.
+Describe the server as a provider in a model config file, then name its model with
+`SHANNON_AI_MODEL`.
 
 > [!IMPORTANT]
 > Use `host.docker.internal`, not `localhost`. The scan runs inside a container, so `localhost` points at the container itself rather than at your machine.
 
-A `models.json` for Ollama:
+A `models.json` for another OpenAI-compatible local runtime:
 
 ```json
 {
   "providers": {
-    "ollama": {
-      "baseUrl": "http://host.docker.internal:11434/v1",
+    "local": {
+      "baseUrl": "http://host.docker.internal:8000/v1",
       "api": "openai-completions",
-      "apiKey": "ollama",
+      "apiKey": "local",
       "models": [
         { "id": "<model-id>" }
       ]
@@ -988,8 +1019,8 @@ A `models.json` for Ollama:
 Then name the model and run:
 
 ```bash
-export SHANNON_AI_API_KEY=ollama                  # any value, see below
-export SHANNON_AI_MODEL=ollama:<model-id>
+export SHANNON_AI_API_KEY=local                   # any value, see below
+export SHANNON_AI_MODEL=local:<model-id>
 ./shannon start -u https://example.com -r ./my-repo --models-config ./models.json
 ```
 

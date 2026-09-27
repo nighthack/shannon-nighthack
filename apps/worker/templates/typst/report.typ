@@ -15,8 +15,8 @@
 #let coverage = data.at("coverage", default: (status: "complete", limitations: ()))
 #let assessment-status = if coverage.status == "partial" { "Completed with limitations" } else { "Complete" }
 
-#let tester-override = sys.inputs.at("tester", default: "Shannon")
-#let brand = sys.inputs.at("brand", default: "Shannon | AI Pentester by Keygraph")
+#let tester-override = sys.inputs.at("tester", default: "shannon-nighthack")
+#let brand = sys.inputs.at("brand", default: "shannon-nighthack | AI Pentester by Keygraph")
 
 // ---------- Palette ---------------------------------------------------------
 // Kept distinct so Critical / High are not confused under monitor gamma.

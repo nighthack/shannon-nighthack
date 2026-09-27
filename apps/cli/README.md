@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/KeygraphHQ/shannon/main/assets/github-banner-light.png" alt="Shannon, AI Pentester for Web Apps and APIs, by Keygraph" width="100%">
+<img src="https://raw.githubusercontent.com/KeygraphHQ/shannon/main/assets/github-banner-light.png" alt="shannon-nighthack, AI Pentester for Web Apps and APIs, by Keygraph" width="100%">
 
-### Shannon is an autonomous, AI pentester for web applications and APIs.
+### shannon-nighthack is an autonomous, AI pentester for web applications and APIs.
 
 It analyzes your source code, identifies attack paths, and executes real exploits to prove vulnerabilities before they reach production.
 
-**This package is Shannon Open Source: the full agent, run locally from your command line.**
+**This package is shannon-nighthack Open Source: the full agent, run locally from your command line.**
 
 ---
 
@@ -22,12 +22,12 @@ It analyzes your source code, identifies attack paths, and executes real exploit
 
 - **Docker**: required for the worker container.
 - **Node.js 18+**: required for the recommended `npx` workflow.
-- **AI provider credentials**: Shannon runs on Anthropic, OpenAI, xAI, AWS Bedrock, and any other provider in the harness catalogue — each of which you can point at a proxy or LLM gateway through a custom base URL. You bring your own key, and Keygraph never proxies your model traffic. Shannon is provider-agnostic.
+- **AI provider credentials**: shannon-nighthack runs on Anthropic, OpenAI, xAI, AWS Bedrock, Ollama, and any other provider in the harness catalogue — each of which you can point at a proxy or LLM gateway through a custom base URL. Ollama runs locally and needs no real API key. You bring your own key for hosted providers, and Keygraph never proxies your model traffic. shannon-nighthack is provider-agnostic.
 - **Cyber safeguards cleared with your provider**: Anthropic and OpenAI apply real-time safeguards to cyber-security workloads, which can interrupt a scan mid-run. Complete their guidance for legitimate security testers before your first run.
 
-### Run Shannon
+### Run shannon-nighthack
 
-> **Warning:** Shannon actively executes exploits. Run it only against applications and environments you own or have explicit written authorization to test. Do not run Shannon against production systems.
+> **Warning:** shannon-nighthack actively executes exploits. Run it only against applications and environments you own or have explicit written authorization to test. Do not run shannon-nighthack against production systems.
 
 ```bash
 # Configure credentials with the interactive wizard.
@@ -37,11 +37,11 @@ npx @keygraph/shannon setup
 npx @keygraph/shannon start -u https://your-app.com -r /path/to/your-repo
 ```
 
-Shannon pulls the worker image from Docker Hub, starts the required local infrastructure, mounts the target repository read-only inside an ephemeral worker container, and writes results to a local workspace.
+shannon-nighthack pulls the worker image from Docker Hub, starts the required local infrastructure, mounts the target repository read-only inside an ephemeral worker container, and writes results to a local workspace.
 
 ## Editions
 
-Shannon ships in two ways. **Shannon Open Source** is this package: the standalone pentester you run yourself, on demand, and complete in that lane. The **Keygraph platform** is the commercial product that runs an enhanced build of Shannon continuously and closes the full AppSec lifecycle around it - code analysis, finding management, automated remediation, verification, and enterprise deployment.
+shannon-nighthack ships in two ways. **shannon-nighthack Open Source** is this package: the standalone pentester you run yourself, on demand, and complete in that lane. The **Keygraph platform** is the commercial product that runs an enhanced build of shannon-nighthack continuously and closes the full AppSec lifecycle around it - code analysis, finding management, automated remediation, verification, and enterprise deployment.
 
 ## Documentation
 
@@ -49,7 +49,7 @@ Shannon ships in two ways. **Shannon Open Source** is this package: the standalo
 
 ## License
 
-Shannon Open Source is licensed under the [GNU Affero General Public License v3.0](https://github.com/KeygraphHQ/shannon/blob/main/LICENSE).
+shannon-nighthack Open Source is licensed under the [GNU Affero General Public License v3.0](https://github.com/KeygraphHQ/shannon/blob/main/LICENSE).
 
 Commercial and enterprise licensing is available for organizations that need different license terms, commercial support, private redistribution, managed-service use, or broader deployment options, including the Keygraph platform.
 

@@ -36,7 +36,7 @@ let agentLogWarned = false;
 export function warnLoggingFailure(): void {
   if (warned) return;
   warned = true;
-  console.error('Shannon could not write scan progress to workflow.log.');
+  console.error('shannon-nighthack could not write scan progress to workflow.log.');
 }
 
 /**
@@ -46,7 +46,9 @@ export function warnLoggingFailure(): void {
 export function warnAgentLoggingFailure(): void {
   if (agentLogWarned) return;
   agentLogWarned = true;
-  console.error('Shannon could not write a per-agent log projection; the combined workflow.log is unaffected.');
+  console.error(
+    'shannon-nighthack could not write a per-agent log projection; the combined workflow.log is unaffected.',
+  );
 }
 
 /** Open the append stream and track when it is safe to write, so an early `write()` waits on `open` instead of racing it. */

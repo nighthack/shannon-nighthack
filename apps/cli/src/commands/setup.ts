@@ -20,6 +20,8 @@ const SHANNON_HOME = path.join(os.homedir(), '.shannon');
 const CUSTOM_MODEL = '__custom__';
 const CUSTOM_BASE_URL = '__custom_base_url__';
 const OTHER_PROVIDER = '__other_provider__';
+const OLLAMA_PROVIDER = 'ollama';
+const OLLAMA_DEFAULT_BASE_URL = 'http://host.docker.internal:11434/v1';
 
 /**
  * API dialects reachable through the gateway route. The dialect picks the provider
@@ -52,6 +54,7 @@ const MODEL_ID_PLACEHOLDER: Readonly<Record<CuratedProviderId, string>> = {
 
 /** Model ID placeholder for a provider, absent when the provider is not curated. */
 function modelIdPlaceholder(provider: string): string | undefined {
+  if (provider === OLLAMA_PROVIDER) return 'qwen3.8-abliterated';
   return isCuratedProvider(provider) ? MODEL_ID_PLACEHOLDER[provider] : undefined;
 }
 
@@ -70,6 +73,11 @@ export async function setup(): Promise<void> {
       { value: 'openai' as const, label: 'OpenAI', hint: 'GPT models' },
       { value: 'xai' as const, label: 'xAI', hint: 'Grok models' },
       { value: 'amazon-bedrock' as const, label: 'AWS Bedrock', hint: 'Claude models via AWS' },
+      {
+        value: OLLAMA_PROVIDER as typeof OLLAMA_PROVIDER,
+        label: 'Ollama',
+        hint: 'local models, including Qwen abliterated variants',
+      },
       {
         value: CUSTOM_BASE_URL as typeof CUSTOM_BASE_URL,
         label: 'Custom Base URL',
@@ -113,7 +121,7 @@ interface Selection {
 
 /** Resolve the provider selection into a provider id and its credential config. */
 async function setupSelection(
-  selected: CuratedProviderId | typeof CUSTOM_BASE_URL | typeof OTHER_PROVIDER,
+  selected: CuratedProviderId | typeof CUSTOM_BASE_URL | typeof OTHER_PROVIDER | typeof OLLAMA_PROVIDER,
 ): Promise<Selection> {
   if (selected === CUSTOM_BASE_URL) {
     const gateway = await setupGateway();
@@ -122,7 +130,36 @@ async function setupSelection(
   if (selected === OTHER_PROVIDER) {
     return setupOtherProvider();
   }
+  if (selected === OLLAMA_PROVIDER) {
+    return setupOllama();
+  }
   return { provider: selected, config: await setupProvider(selected) };
+}
+
+/** Configure the local Ollama server exposed to the worker container. */
+async function setupOllama(): Promise<Selection> {
+  p.log.info('Make sure Ollama is running and the model has been pulled before starting a scan.');
+  const enteredBaseUrl = await p.text({
+    message: 'Ollama OpenAI-compatible endpoint',
+    initialValue: OLLAMA_DEFAULT_BASE_URL,
+    validate: (value) => {
+      if (!value) return 'Endpoint URL is required';
+      try {
+        new URL(value);
+      } catch {
+        return 'Must be a valid URL';
+      }
+      return undefined;
+    },
+  });
+  if (p.isCancel(enteredBaseUrl)) return cancelAndExit();
+
+  return {
+    provider: OLLAMA_PROVIDER,
+    // Ollama ignores this placeholder, but the harness requires a provider credential.
+    config: { provider: { api_key: OLLAMA_PROVIDER } },
+    baseUrl: enteredBaseUrl.trim(),
+  };
 }
 
 async function setupProvider(provider: CuratedProviderId): Promise<ShannonConfig> {

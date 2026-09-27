@@ -348,7 +348,7 @@ async function validateCredentials(logger: ActivityLogger): Promise<Result<void,
   //    are the easiest to get wrong, since region prefixes and version suffixes differ
   //    per model (`us.anthropic.claude-opus-5` exists, bare `anthropic.` does not).
   //    An id the registry lacks is supplied by --models-config, not guessed at here.
-  const modelRuntime = await createModelRuntime(spec.providerId, credentials.apiKey);
+  const modelRuntime = await createModelRuntime(spec.providerId, credentials.apiKey, spec.modelId);
 
   // A model config that fails to parse or compose leaves pi with an empty or fallback
   // provider, which would surface below as "model not found" and blame SHANNON_AI_MODEL

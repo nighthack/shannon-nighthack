@@ -130,7 +130,7 @@ function formatToolName(tool: string): string {
 }
 
 /** One self-describing first line per per-agent file, appended once when its lease opens. */
-const AGENT_LOG_HEADER_PREFIX = '=== Shannon agent log: ';
+const AGENT_LOG_HEADER_PREFIX = '=== shannon-nighthack agent log: ';
 
 function agentLogHeader(slug: string): string {
   return `${AGENT_LOG_HEADER_PREFIX}${slug} ===`;
@@ -438,7 +438,7 @@ export class WorkflowLogger {
       const workflowId = safeWorkflowIdentifier(this.workflowId ?? this.sessionMetadata.id);
       const header = [
         '================================================================================',
-        'Shannon Pentest - Scan Log',
+        'shannon-nighthack Pentest - Scan Log',
         '================================================================================',
         `Workflow ID: ${workflowId}`,
         `Target URL:  ${safeTargetUrl(this.sessionMetadata.webUrl)}`,
@@ -447,7 +447,7 @@ export class WorkflowLogger {
         '',
       ].join('\n');
       await this.logStream.appendIfAbsent(header, {
-        marker: 'Shannon Pentest - Scan Log',
+        marker: 'shannon-nighthack Pentest - Scan Log',
         scope: 'whole-file',
         match: 'exact-line',
       });

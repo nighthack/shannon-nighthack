@@ -6,7 +6,7 @@
  * a terminal state, prints the overall result and exits. Local session records prove
  * the target's canonical workspace/workflow identity; the progress itself is read from
  * Temporal directly — no worker — so it needs Temporal up and shows scans within its
- * retention window (Shannon configures seven days by default; see SHANNON_TEMPORAL_RETENTION).
+ * retention window (shannon-nighthack configures seven days by default; see SHANNON_TEMPORAL_RETENTION).
  */
 
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -212,7 +212,7 @@ export async function status(target: string, opts: { readonly json: boolean }): 
       `No scan found for "${workspace}".`,
       '',
       "Scan histories are available while a scan runs and within Temporal's retention window after it finishes.",
-      "Shannon configures 7 days of retention by default (override: SHANNON_TEMPORAL_RETENTION). Expired histories can't be restored.",
+      "shannon-nighthack configures 7 days of retention by default (override: SHANNON_TEMPORAL_RETENTION). Expired histories can't be restored.",
     );
   }
 

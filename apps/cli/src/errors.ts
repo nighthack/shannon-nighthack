@@ -19,7 +19,8 @@ import fs from 'node:fs';
 
 const ISSUES_URL = 'https://github.com/KeygraphHQ/shannon/issues';
 
-const UNEXPECTED_MESSAGE = 'Shannon encountered an unexpected failure. Reference code: SHANNON_UNEXPECTED_ERROR';
+const UNEXPECTED_MESSAGE =
+  'shannon-nighthack encountered an unexpected failure. Reference code: SHANNON_UNEXPECTED_ERROR';
 const REPORT_HINT = `If this looks like a bug, please report it: ${ISSUES_URL}`;
 
 /** Stable machine-readable failure codes for the JSON error envelope. */

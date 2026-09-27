@@ -1,5 +1,5 @@
 /**
- * Shannon CLI — AI Pentester for Web Apps and APIs
+ * shannon-nighthack CLI — AI Pentester for Web Apps and APIs
  *
  * Unified CLI supporting two modes:
  *   Local mode: Run from cloned repo — builds locally, mounts prompts, uses ./workspaces/
@@ -48,14 +48,14 @@ function blockSudo(): void {
   if (isSudo) {
     failWith(
       'CLI_PRECONDITION_FAILED',
-      'Shannon must not be run with sudo.',
+      'shannon-nighthack must not be run with sudo.',
       'Re-run this command as your normal user.',
       ...linuxHints,
     );
   }
   failWith(
     'CLI_PRECONDITION_FAILED',
-    'Shannon must not be run as the root user.',
+    'shannon-nighthack must not be run as the root user.',
     'Switch to a regular user account and re-run this command.',
     ...linuxHints,
   );
@@ -67,8 +67,8 @@ function blockNativeWindows(): void {
 
   failWith(
     'CLI_PRECONDITION_FAILED',
-    'Shannon does not run on native Windows.',
-    'Run Shannon inside WSL2. Setup instructions:',
+    'shannon-nighthack does not run on native Windows.',
+    'Run shannon-nighthack inside WSL2. Setup instructions:',
     'https://github.com/KeygraphHQ/shannon/blob/main/docs/platforms.md',
   );
 }
@@ -141,7 +141,7 @@ function showHelp(withSplash: boolean): void {
   const mode = getMode();
   const prefix = commandPrefix();
 
-  const header = withSplash ? '' : '\nShannon — AI Pentester by Keygraph\n';
+  const header = withSplash ? '' : '\nshannon-nighthack — AI Pentester by Keygraph\n';
   const firstScan = stdoutIsTerminal() ? `\n${renderFirstScanBox(prefix)}\n` : '';
 
   console.log(`${header}${firstScan}
@@ -171,7 +171,7 @@ Docs & source: https://github.com/KeygraphHQ/shannon
 function showSetupPrompt(): void {
   const prefix = commandPrefix();
   console.log(`
-Welcome to Shannon — AI Pentester by Keygraph
+Welcome to shannon-nighthack — AI Pentester by Keygraph
 
 No credentials configured yet. To get started, run:
 

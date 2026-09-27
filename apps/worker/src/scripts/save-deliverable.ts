@@ -24,7 +24,7 @@ import { DELIVERABLE_FILENAMES, type DeliverableType } from '../types/deliverabl
 function printHelp(): void {
   const types = Object.keys(DELIVERABLE_FILENAMES).join(', ');
   console.log(
-    `save-deliverable - save a Shannon pentest deliverable under its canonical filename.
+    `save-deliverable - save a shannon-nighthack pentest deliverable under its canonical filename.
 
 Usage:
   save-deliverable --type <TYPE> --file-path <path>

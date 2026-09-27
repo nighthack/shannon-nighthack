@@ -223,7 +223,7 @@ export function validateCredentials(): CredentialValidation {
     const lines = [`Credentials for more than one provider are set: ${list}.`];
     if (extraVars.length > 0) {
       lines.push(
-        `Shannon runs one provider per scan, selected by SHANNON_AI_MODEL ("${spec.providerId}:...").`,
+        `shannon-nighthack runs one provider per scan, selected by SHANNON_AI_MODEL ("${spec.providerId}:...").`,
         `Keep ${spec.providerId} and drop the rest — ${dropHint}`,
         `  unset ${extraVars.join(' ')}`,
       );

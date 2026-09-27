@@ -120,7 +120,7 @@ export function buildCodePathScopeSnippet(focus: readonly string[], avoids: read
 /** Embed the KB because repository-confined tools cannot read the sibling artifact root. */
 export function buildKnowledgeBaseContext(knowledgeBase: KbResult): string {
   return [
-    '## Shannon host-provided knowledge base',
+    '## shannon-nighthack host-provided knowledge base',
     '',
     'The knowledge base is supplied as structured data below. Do not look for it in the repository.',
     '',
@@ -134,7 +134,7 @@ export function buildKnowledgeBaseContext(knowledgeBase: KbResult): string {
 export function buildFindingsContext(findings: readonly CapellaFinding[]): string {
   const ordered = [...findings].sort((left, right) => compareText(left.id, right.id));
   return [
-    '## Shannon host-provided findings',
+    '## shannon-nighthack host-provided findings',
     '',
     'The complete current finding set is supplied below. Do not look for a `findings/` directory.',
     'Use repository tools only for the source paths cited by these records.',

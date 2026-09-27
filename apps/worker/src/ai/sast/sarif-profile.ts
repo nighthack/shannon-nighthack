@@ -15,7 +15,7 @@ import { isNormalizedRepositoryPath } from './capella/paths.js';
 
 export const CAPELLA_SARIF_SCHEMA =
   'https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json';
-export const CAPELLA_SARIF_DRIVER_NAME = 'Shannon Capella Agentic SAST';
+export const CAPELLA_SARIF_DRIVER_NAME = 'shannon-nighthack Capella Agentic SAST';
 export const CAPELLA_SARIF_DRIVER_VERSION = '1.0.0';
 export const CAPELLA_SARIF_INFORMATION_URI = 'https://github.com/KeygraphHQ/shannon';
 

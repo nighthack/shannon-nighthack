@@ -7,7 +7,7 @@
 // as published by the Free Software Foundation.
 
 /**
- * Combined Temporal worker + client for Shannon pentest pipeline.
+ * Combined Temporal worker + client for shannon-nighthack pentest pipeline.
  *
  * Starts a worker on a per-invocation task queue, submits a workflow,
  * waits for the result, and exits. Designed to run as a single ephemeral
@@ -18,7 +18,7 @@
  *
  * Options:
  *   --task-queue <name>    Task queue name (required, unique per scan)
- *   --workflow-id <id>     Workflow ID selected by the Shannon CLI
+ *   --workflow-id <id>     Workflow ID selected by the shannon-nighthack CLI
  *   --config <path>        Configuration file path
  *   --output <path>        Stable mounted path for final customer report copies
  *   --workspace <name>     Resume from existing workspace
@@ -251,13 +251,13 @@ interface CliArgs {
 }
 
 function showUsage(): void {
-  console.log('\nShannon Worker');
+  console.log('\nshannon-nighthack Worker');
   console.log('Combined worker + client for pentest pipeline\n');
   console.log('Usage:');
   console.log('  node dist/temporal/worker.js <webUrl> <repoPath> --task-queue <name> [options]\n');
   console.log('Options:');
   console.log('  --task-queue <name>    Task queue name (required)');
-  console.log('  --workflow-id <id>     Workflow ID selected by the Shannon CLI');
+  console.log('  --workflow-id <id>     Workflow ID selected by the shannon-nighthack CLI');
   console.log('  --config <path>        Configuration file path');
   console.log('  --workspace <name>     Resume from existing workspace');
   console.log('  --output <path>        Stable mounted path for final customer report copies');
@@ -376,7 +376,7 @@ function escapeRegExp(value: string): string {
 /** Accept a CLI-owned ID only when it preserves this launch branch's public naming contract. */
 function selectWorkflowId(requested: string | undefined, fallback: string, expected: RegExp): string {
   if (requested === undefined) return fallback;
-  if (!expected.test(requested)) throw new Error('Invalid workflow identity supplied by the Shannon CLI');
+  if (!expected.test(requested)) throw new Error('Invalid workflow identity supplied by the shannon-nighthack CLI');
   return requested;
 }
 

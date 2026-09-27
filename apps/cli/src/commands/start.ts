@@ -104,7 +104,7 @@ const DAMAGED_RECORDS_MESSAGE =
   "This workspace's internal records are damaged and it cannot be resumed. Its report files are untouched. Start a new scan with a different -w name.";
 
 const NEWER_RELEASE_MESSAGE =
-  'This workspace was created by a newer version of Shannon. Upgrade Shannon, or start a new scan with a different -w name.';
+  'This workspace was created by a newer version of shannon-nighthack. Upgrade shannon-nighthack, or start a new scan with a different -w name.';
 
 function readJsonFile(filePath: string): unknown {
   try {
@@ -117,7 +117,7 @@ function readJsonFile(filePath: string): unknown {
 function readLaunchState(filePath: string): LaunchState {
   if (!fs.existsSync(filePath)) {
     fail(
-      'This workspace was created by an earlier version of Shannon and cannot be resumed. Its files and report are untouched. Start a new scan with a different -w name.',
+      'This workspace was created by an earlier version of shannon-nighthack and cannot be resumed. Its files and report are untouched. Start a new scan with a different -w name.',
     );
   }
   const value = readJsonFile(filePath);
@@ -155,7 +155,7 @@ export function classifyWorkspaceLaunch(
   if (!sessionExists) {
     if (fs.existsSync(workspacePath) && fs.readdirSync(workspacePath).length > 0) {
       fail(
-        'This directory is not a Shannon workspace, or its scan state is missing. Start a new scan with a different -w name.',
+        'This directory is not a shannon-nighthack workspace, or its scan state is missing. Start a new scan with a different -w name.',
       );
     }
     return { isResume: false, ...(requestedOutputDir !== undefined && { outputDir: requestedOutputDir }) };

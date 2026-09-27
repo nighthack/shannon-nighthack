@@ -5,20 +5,12 @@
 
 import { supportsColor } from './tty.js';
 
-/** SHANNON wordmark. Block glyphs take the row fill; box-drawing strokes take the deeper edge shade. */
-const SHANNON = [
-  '███████╗██╗  ██╗ █████╗ ███╗   ██╗███╗   ██╗ ██████╗ ███╗   ██╗',
-  '██╔════╝██║  ██║██╔══██╗████╗  ██║████╗  ██║██╔═══██╗████╗  ██║',
-  '███████╗███████║███████║██╔██╗ ██║██╔██╗ ██║██║   ██║██╔██╗ ██║',
-  '╚════██║██╔══██║██╔══██║██║╚██╗██║██║╚██╗██║██║   ██║██║╚██╗██║',
-  '███████║██║  ██║██║  ██║██║ ╚████║██║ ╚████║╚██████╔╝██║ ╚████║',
-  '╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═══╝',
-];
+/** Product wordmark rendered in every interactive terminal. */
+const WORDMARK = ['shannon-nighthack'];
 
 /**
- * Sunset ramp, yellow at the top row down to burnt orange at the base.
- * Wordmark row i is filled with stop i and edged with stop i + 1, so the
- * box-drawing strokes read as a shadow one shade deeper than their row.
+ * Sunset palette for the product wordmark. Text uses the deeper edge shade;
+ * the fill shade remains available if block glyphs are added later.
  * `xterm` is the 256-color approximation for terminals without 24-bit color.
  */
 const SUNSET: ReadonlyArray<{ rgb: readonly [number, number, number]; xterm: number }> = [
@@ -65,7 +57,7 @@ export function displaySplash(version?: string): void {
     '',
     `  ${WHITE}Keygraph${RESET}${version ? `  ${DIM}v${version}${RESET}` : ''}`,
     '',
-    ...SHANNON.map((row, i) => `  ${paint(row, ramp[i] ?? '', ramp[i + 1] ?? '')}`),
+    ...WORDMARK.map((row, i) => `  ${paint(row, ramp[i] ?? '', ramp[i + 1] ?? '')}`),
     '',
     `  ${WHITE}AI Pentester for Web Apps and APIs${RESET}`,
     '',
@@ -87,7 +79,7 @@ const RULE_WIDTH = 60;
 export function displayPlainBanner(version?: string): void {
   const rule = '─'.repeat(RULE_WIDTH);
   console.log(rule);
-  console.log(version ? ` Shannon v${version}` : ' Shannon');
+  console.log(version ? ` shannon-nighthack v${version}` : ' shannon-nighthack');
   console.log(' AI Pentester for Web Apps and APIs, by Keygraph');
   console.log(' Authorized security testing only.');
   console.log(rule);

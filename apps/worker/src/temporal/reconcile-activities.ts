@@ -105,8 +105,9 @@ const DEFAULT_RETRYABILITY: Readonly<Record<ReconciliationStableFailureType, boo
  * which every reconciliation activity carries in its input.
  */
 const SAFE_FAILURE_MESSAGES: Readonly<Record<ReconciliationStableFailureType, string>> = Object.freeze({
-  TaskFormationModelError: 'Shannon could not group {class} findings into test cases.',
-  SastEnrichmentModelError: 'Shannon could not add code context to the {class} findings from static analysis.',
+  TaskFormationModelError: 'shannon-nighthack could not group {class} findings into test cases.',
+  SastEnrichmentModelError:
+    'shannon-nighthack could not add code context to the {class} findings from static analysis.',
   ReconciliationArtifactNotFound:
     'A saved {class} result could not be read back. Re-running this workspace retries it.',
   ReconciliationIoError: 'A reconciliation filesystem or Git operation failed.',
@@ -116,9 +117,9 @@ const SAFE_FAILURE_MESSAGES: Readonly<Record<ReconciliationStableFailureType, st
   PublicationConflict:
     "{Class} results were already published by an earlier run, and this run's results differ. Nothing was overwritten.",
   UnmappableSurvivor:
-    'Shannon could not match a finding in the report back to the test case it came from. {Class} results were not published.',
+    'shannon-nighthack could not match a finding in the report back to the test case it came from. {Class} results were not published.',
   KeySetDivergence:
-    'Shannon found two disagreeing sets of findings for {class} and stopped rather than publish either.',
+    'shannon-nighthack found two disagreeing sets of findings for {class} and stopped rather than publish either.',
 });
 
 interface ReconciliationHeartbeatDetails {

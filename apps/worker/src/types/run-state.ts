@@ -224,7 +224,7 @@ export function renderSafeMessage(template: string, context: SafeMessageContext)
 export const PARTIAL_REASON_SAFE_MESSAGES: Readonly<Record<PartialReasonCode, string>> = Object.freeze({
   agentic_sast_failed: 'Agentic SAST failed, so the pentest continued without its findings.',
   agentic_sast_reduced:
-    "Agentic SAST left some findings out of the pentest because they did not match Shannon's required finding format. This workspace does not contain the exact count.",
+    "Agentic SAST left some findings out of the pentest because they did not match shannon-nighthack's required finding format. This workspace does not contain the exact count.",
   class_pipeline_failed:
     '{Class} could not be fully assessed. The other classes completed. Re-running this workspace retries only the part that failed.',
   class_reconciliation_failed:
@@ -842,7 +842,8 @@ export type RunStateFailureType = 'IncompatibleWorkspaceError' | 'CorruptedSessi
 
 /** One wording per durable-state refusal, shared by every layer that can refuse first. */
 export const SAFE_RUN_STATE_MESSAGES: Readonly<Record<RunStateFailureType, string>> = Object.freeze({
-  IncompatibleWorkspaceError: 'This workspace was created by a different version of Shannon and cannot be resumed.',
+  IncompatibleWorkspaceError:
+    'This workspace was created by a different version of shannon-nighthack and cannot be resumed.',
   CorruptedSessionError: "This workspace's scan state is missing or damaged, so it cannot be resumed.",
   DurableStateConflictError:
     "This workspace's saved progress does not match what the scan is trying to record. Start a new scan with a different -w name.",

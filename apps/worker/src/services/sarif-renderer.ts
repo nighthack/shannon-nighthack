@@ -23,7 +23,7 @@ interface SarifRule {
   readonly properties: { tags: string[] };
 }
 
-const TOOL_NAME = 'Shannon';
+const TOOL_NAME = 'shannon-nighthack';
 const TOOL_URI = 'https://github.com/KeygraphHQ/shannon';
 
 /** Taxonomy identity. A reference resolves the component by name, so this must not be reworded. */
@@ -102,7 +102,7 @@ const RULES: Record<string, SarifRule> = {
     name: 'Miscellaneous Security Vulnerability',
     shortDescription: { text: 'Miscellaneous Security Vulnerability' },
     fullDescription: {
-      text: "A security weakness outside Shannon's named vulnerability classes that can affect confidentiality, integrity, or availability.",
+      text: "A security weakness outside shannon-nighthack's named vulnerability classes that can affect confidentiality, integrity, or availability.",
     },
     help: {
       text: 'Apply the finding-specific remediation, add a regression test at the affected trust boundary, and verify that equivalent entry points enforce the same control.',

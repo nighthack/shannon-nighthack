@@ -49,7 +49,7 @@ export class ActivityMirrorError extends Error {
 
   constructor(activityType: string) {
     super(
-      `This version of the Shannon command line does not recognise part of the running scan\n(${activityType}). Update Shannon, or watch the scan with: shannon logs <workspace>`,
+      `This version of the shannon-nighthack command line does not recognise part of the running scan\n(${activityType}). Update shannon-nighthack, or watch the scan with: shannon logs <workspace>`,
     );
   }
 }
@@ -193,7 +193,7 @@ export async function requestWorkflowTermination(
   }
 }
 
-/** List currently open Shannon scan workflows through Temporal visibility. */
+/** List currently open shannon-nighthack scan workflows through Temporal visibility. */
 export async function listRunningScanWorkflows(): Promise<readonly RunningScanWorkflow[]> {
   return runLifecycleRpc(async (client) => {
     const workflows: RunningScanWorkflow[] = [];

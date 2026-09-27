@@ -294,7 +294,7 @@ export async function exportCapellaFindings(
     .sort((left, right) => compareText(left.id, right.id));
   const excludedCount = gated.length - exported.length;
   if (excludedCount > 0) {
-    warnings.push(`${excludedCount} agentic SAST findings were in paths your config told Shannon to avoid.`);
+    warnings.push(`${excludedCount} agentic SAST findings were in paths your config told shannon-nighthack to avoid.`);
   }
   if (validFindings.length > 0 && exported.length === 0) {
     warnings.push(

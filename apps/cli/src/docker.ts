@@ -269,7 +269,7 @@ export function ensureImage(version: string): void {
   }
 
   if (canBuildImage()) {
-    console.log('Shannon image not found, building...');
+    console.log('shannon-nighthack image not found, building...');
     buildImage(false, version);
   } else {
     console.log(`Pulling ${image}...`);
@@ -298,8 +298,10 @@ function ensureWorkerImageProtocol(image: string): void {
   ]);
   if (protocol === WORKFLOW_ID_PROTOCOL) return;
 
-  const hint = canBuildImage() ? 'Run ./shannon build, then retry.' : 'Reinstall this Shannon version, then retry.';
-  fail('The Shannon worker image is incompatible with this CLI.', hint);
+  const hint = canBuildImage()
+    ? 'Run ./shannon build, then retry.'
+    : 'Reinstall this shannon-nighthack version, then retry.';
+  fail('The shannon-nighthack worker image is incompatible with this CLI.', hint);
 }
 
 /**
@@ -338,7 +340,7 @@ function isLoopbackIp(ip: string): boolean {
 
 function shouldSkipHostsIp(ip: string): boolean {
   if (ip === '0.0.0.0' || ip === '255.255.255.255') return true;
-  // Cloud metadata range — consistent with Shannon's SSRF guard
+  // Cloud metadata range — consistent with shannon-nighthack's SSRF guard
   if (ip.startsWith('169.254.')) return true;
   const lower = ip.toLowerCase();
   if (lower.startsWith('fe80:') || lower.startsWith('ff')) return true;

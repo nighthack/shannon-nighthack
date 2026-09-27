@@ -11,7 +11,7 @@ export function build(noCache: boolean, version: string): void {
 
   if (!canBuildImage()) {
     fail(
-      'Build is only available when running from the Shannon repository',
+      'Build is only available when running from the shannon-nighthack repository',
       '  (Dockerfile not found in current directory)',
     );
   }

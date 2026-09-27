@@ -22,7 +22,7 @@ It analyzes your source code, identifies attack paths, and executes real exploit
 
 - **Docker**: required for the worker container.
 - **Node.js 18+**: required for the recommended `npx` workflow.
-- **AI provider credentials**: shannon-nighthack runs on Anthropic, OpenAI, xAI, AWS Bedrock, and any other provider in the harness catalogue — each of which you can point at a proxy or LLM gateway through a custom base URL. You bring your own key, and Keygraph never proxies your model traffic. shannon-nighthack is provider-agnostic.
+- **AI provider credentials**: shannon-nighthack runs on Anthropic, OpenAI, xAI, AWS Bedrock, Ollama, and any other provider in the harness catalogue — each of which you can point at a proxy or LLM gateway through a custom base URL. Ollama runs locally and needs no real API key. You bring your own key for hosted providers, and Keygraph never proxies your model traffic. shannon-nighthack is provider-agnostic.
 - **Cyber safeguards cleared with your provider**: Anthropic and OpenAI apply real-time safeguards to cyber-security workloads, which can interrupt a scan mid-run. Complete their guidance for legitimate security testers before your first run.
 
 ### Run shannon-nighthack

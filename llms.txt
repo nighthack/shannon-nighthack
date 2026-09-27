@@ -1,14 +1,14 @@
-# Shannon
+# shannon-nighthack
 
-> Shannon is an autonomous AI pentesting project by Keygraph. This repository contains Shannon, the AGPL-3.0 open-source white-box pentesting CLI. The Keygraph platform is Keygraph's commercial continuous pentesting and AppSec platform.
+> shannon-nighthack is an autonomous AI pentesting project by Keygraph. This repository contains shannon-nighthack, the AGPL-3.0 open-source white-box pentesting CLI. The Keygraph platform is Keygraph's commercial continuous pentesting and AppSec platform.
 
 Use this file as the concise entry point for AI agents and LLMs reading this repository. For a single combined context file, use [llms-full.txt](llms-full.txt).
 
 ## Start Here
 
-- [README](README.md): Main project overview, editions, quick start, Shannon capabilities, CI/CD integrations, common questions, safety notes, licensing, and support links.
+- [README](README.md): Main project overview, editions, quick start, shannon-nighthack capabilities, CI/CD integrations, common questions, safety notes, licensing, and support links.
 
-## Shannon
+## shannon-nighthack
 
 - [Development](docs/development.md): Source-build workflow, common CLI commands, repository paths, and output locations.
 - [Configuration](docs/configuration.md): Authenticated testing, login flows, rules of engagement (including rate-limit guidance), report filters, and credential precedence.
@@ -16,7 +16,7 @@ Use this file as the concise entry point for AI agents and LLMs reading this rep
 - [Platforms and Networking](docs/platforms.md): Windows/WSL2, Linux, macOS, Docker networking, local applications, and custom hostnames.
 - [Workspaces and Resuming](docs/workspaces.md): Workspace storage, naming, resuming interrupted scans, and examples.
 - [Safety and Limitations](docs/safety.md): Authorized-use requirements, non-production guidance, mutative effects, model caveats, scope limits, cost, and performance.
-- [Coverage and Roadmap](docs/coverage-roadmap.md): Current Shannon coverage and roadmap direction.
+- [Coverage and Roadmap](docs/coverage-roadmap.md): Current shannon-nighthack coverage and roadmap direction.
 
 ## Keygraph Platform
 

@@ -16,6 +16,7 @@ The provider half decides where the request goes, which credential is used, and 
 | OpenAI | `openai` | `SHANNON_AI_API_KEY` |
 | xAI | `xai` | `SHANNON_AI_API_KEY` |
 | AWS Bedrock | `amazon-bedrock` | `AWS_REGION` and `AWS_BEARER_TOKEN_BEDROCK` |
+| Ollama | `ollama` | None (a placeholder is configured automatically) |
 
 `SHANNON_AI_API_KEY` holds the key for whichever provider `SHANNON_AI_MODEL` names. Bedrock is the exception — it authenticates through its `AWS_` variables only. If `SHANNON_AI_MODEL` is unset, Shannon uses `anthropic:claude-sonnet-4-6`.
 
@@ -90,6 +91,17 @@ xAI:
 export SHANNON_AI_API_KEY=xai-...
 export SHANNON_AI_MODEL=xai:grok-4.5
 ```
+
+Ollama (local):
+
+```bash
+export SHANNON_AI_API_KEY=ollama
+export SHANNON_AI_MODEL=ollama:qwen3.8-abliterated
+export SHANNON_AI_BASE_URL=http://host.docker.internal:11434/v1
+```
+
+The model ID must exactly match the tag shown by `ollama list`. The setup wizard
+configures these values for you when you select **Ollama**.
 
 Source-build mode reads the same variables from a `.env` file.
 
@@ -206,20 +218,38 @@ Pi's [models documentation](https://pi.dev/docs/latest/models) describes the ful
 
 ## Local and self-hosted models
 
-Ollama, LM Studio, vLLM, and any other OpenAI-compatible server are reached through the same mechanism. Describe the server as a provider in a model config file, then name its model with `SHANNON_AI_MODEL`.
+Ollama is a built-in setup option. Start Ollama, pull the model you intend to use,
+then run `npx @keygraph/shannon setup` and select **Ollama**. Enter the exact model
+tag reported by `ollama list`; for example, `qwen3.8-abliterated` if that is the tag
+installed on your machine. The default endpoint is already written from the worker
+container's point of view:
+
+```text
+http://host.docker.internal:11434/v1
+```
+
+No `--models-config` argument is needed for Ollama. shannon-nighthack creates the
+minimal OpenAI-Completions model descriptor at runtime and disables unsupported
+developer-role and reasoning-effort fields for compatibility. An explicit
+`--models-config` still takes precedence when you need to tune context size, output
+limits, or other model metadata.
+
+LM Studio, vLLM, and any other OpenAI-compatible server use a custom model config.
+Describe the server as a provider in a model config file, then name its model with
+`SHANNON_AI_MODEL`.
 
 > [!IMPORTANT]
 > Use `host.docker.internal`, not `localhost`. The scan runs inside a container, so `localhost` points at the container itself rather than at your machine.
 
-A `models.json` for Ollama:
+A `models.json` for another OpenAI-compatible local runtime:
 
 ```json
 {
   "providers": {
-    "ollama": {
-      "baseUrl": "http://host.docker.internal:11434/v1",
+    "local": {
+      "baseUrl": "http://host.docker.internal:8000/v1",
       "api": "openai-completions",
-      "apiKey": "ollama",
+      "apiKey": "local",
       "models": [
         { "id": "<model-id>" }
       ]
@@ -231,8 +261,8 @@ A `models.json` for Ollama:
 Then name the model and run:
 
 ```bash
-export SHANNON_AI_API_KEY=ollama                  # any value, see below
-export SHANNON_AI_MODEL=ollama:<model-id>
+export SHANNON_AI_API_KEY=local                   # any value, see below
+export SHANNON_AI_MODEL=local:<model-id>
 ./shannon start -u https://example.com -r ./my-repo --models-config ./models.json
 ```
 

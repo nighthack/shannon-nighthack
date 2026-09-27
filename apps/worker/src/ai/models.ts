@@ -35,7 +35,7 @@
  * guard rails disagree with what the worker actually accepts at runtime.
  */
 
-import { existsSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Api, Credential, CredentialInfo, CredentialStore, Model } from '@earendil-works/pi-ai';
 import { getAgentDir, ModelRuntime } from '@earendil-works/pi-coding-agent';
@@ -218,6 +218,33 @@ function modelsStorePath(): string {
 }
 
 /**
+ * Build the minimal pi model catalogue entry required for an arbitrary local Ollama
+ * model. Ollama model tags are user-defined and therefore cannot live in the remote
+ * catalogue. An explicit --models-config still wins, allowing advanced overrides.
+ */
+function ollamaModelsPath(modelId: string): string {
+  const suffix = Buffer.from(modelId).toString('base64url');
+  const filePath = path.join(getAgentDir(), `ollama-model-${suffix}.json`);
+  const config = {
+    providers: {
+      ollama: {
+        baseUrl: 'http://host.docker.internal:11434/v1',
+        api: 'openai-completions',
+        apiKey: 'ollama',
+        compat: {
+          supportsDeveloperRole: false,
+          supportsReasoningEffort: false,
+        },
+        models: [{ id: modelId }],
+      },
+    },
+  };
+  mkdirSync(path.dirname(filePath), { recursive: true });
+  writeFileSync(filePath, `${JSON.stringify(config, null, 2)}\n`, { mode: 0o600 });
+  return filePath;
+}
+
+/**
  * Build a ModelRuntime whose only credential is the one supplied. `allowModelNetwork`
  * refreshes the model catalogue over the network at scan start, so the registry reflects
  * models the pinned pi build predates. The fetch is bounded and falls back to the static
@@ -235,8 +262,12 @@ function modelsStorePath(): string {
  * disk-backed store resolves the credential. The mount is writable so OAuth
  * refreshes persist to the host for subsequent runs.
  */
-export async function createModelRuntime(providerId: string, apiKey: string | undefined): Promise<ModelRuntime> {
-  const modelsPath = modelsConfigPath();
+export async function createModelRuntime(
+  providerId: string,
+  apiKey: string | undefined,
+  modelId?: string,
+): Promise<ModelRuntime> {
+  const modelsPath = modelsConfigPath() ?? (providerId === 'ollama' && modelId ? ollamaModelsPath(modelId) : undefined);
   const modelSources = {
     modelsPath: modelsPath ?? null,
     ...(modelsPath ? { modelsStorePath: modelsStorePath() } : {}),
@@ -287,7 +318,7 @@ export async function resolveModelSelection(): Promise<ModelSelection> {
   const credentials = resolveProviderCredentials(providerId);
 
   const mountedPiAuth = piAuthPresent();
-  const modelRuntime = await createModelRuntime(providerId, credentials.apiKey);
+  const modelRuntime = await createModelRuntime(providerId, credentials.apiKey, modelId);
 
   const model = resolveModel(modelRuntime, providerId, modelId, credentials.baseUrl);
   if (!model) {
